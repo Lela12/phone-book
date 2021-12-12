@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class PhoneForm extends Component {
   state = {
     name: "",
-    phone: "",
   };
   handleChange = (e) => {
     this.setState({
@@ -11,11 +10,8 @@ class PhoneForm extends Component {
     });
   };
   handleSubmit = (e) => {
-    //   페이지 리로딩 방지
     e.preventDefault();
-    // 상태값을 onCreate를 통해 부모에게 전달
     this.props.onCreate(this.state);
-    // 상태 초기화
     this.setState({
       name: "",
       phone: "",
@@ -36,7 +32,9 @@ class PhoneForm extends Component {
           onChange={this.handleChange}
           name="phone"
         />
-        <button type="submit">등록</button>
+        <div>
+          <button type="submit">등록</button>
+        </div>
       </form>
     );
   }
